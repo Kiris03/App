@@ -1,9 +1,11 @@
 const express = require('express');
+const cors = require('cors'); // Добавьте эту строку
 const app = express();
 const PORT = 3000;
 
+app.use(cors()); // Разрешить все CORS-запросы
 app.use(express.json());
-app.use(express.static('frontend')); // Обязательно!
+app.use(express.static('frontend'));
 
 app.get('/api/products', (req, res) => {
     res.json([
